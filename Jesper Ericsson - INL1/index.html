@@ -1,0 +1,163 @@
+<!-- THE FLOWER OF GROUPS -->
+<!-- A Team Generator By Jesper Ericsson -->
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet"> 
+<style>
+
+.node {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .2;
+}
+
+h1 {
+	font-family: 'Permanent Marker', cursive;
+	text-align: center;
+  font-size:40px;
+	color: #00c3ff; 
+}
+
+h4 {
+  font-family: 'Work Sans', cursive;
+	text-align: center;
+  font-size:15px;
+  color: #788790;
+}
+
+svg {
+	position: absolute;
+	left: 0px;
+	width: 100%;
+}
+
+.memberBox {
+  display: none;
+  padding: 20px;
+  height: 150px;
+  width: 250px;
+  background-color: #666;
+  color: #fff;
+  position: absolute;
+  text-align: center;
+  font-family: 'Permanent Marker', cursive;
+  font-size:40px;
+  top: 150px;
+  left: 50px;
+  border-radius: 20px;
+}
+
+.abilityInfo {
+  font-family: 'Work Sans', sans-serif;
+  font-size:16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.memberMean {
+  font-family: 'Work Sans', sans-serif;
+  font-size:16px;
+}
+
+</style>
+<body>   
+<script src="d3.v3.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<h1>The Flower Of Groups </h1>
+<h4>A Team Generator By QuickBeam</h4>
+<div class="memberBox">
+  <div class="textInfo"></div>
+  <div class="abilityInfo"></div>
+  <div class="memberMean"></div>
+</div>
+<script>
+
+var width = 1250,
+    height = 550;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+    .charge(-150)
+    .linkDistance(50)
+    .size([width, height]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+d3.json("data.json", function(error, graph) {
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", 3);
+
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("circle")
+      .attr("class", "node")
+      .attr("id", function(d) { return d.nodetype; })
+      .attr("r", 10)
+      .style("fill", function(d) { return color(d.nodeID); })
+      .call(force.drag);
+
+  node.append("title")
+      .text(function(d) { return d.nodename; });
+
+  var groupnode = svg.selectAll("#groupnode")
+      .attr("r", 20)
+      .on("click", function(d){
+        $(".memberBox").fadeIn();
+        $(".memberBox .textInfo").html(d.nodename);
+        $(".memberBox .memberMean").html("<b>Group Average:</b> " + d.nodemean);
+        $(".memberBox .abilityInfo").html("<b>Group Strength:</b> " + d.groupStr);
+        $(".memberBox").css("background-color", this.style.fill);
+      });
+
+  var rootnode = svg.selectAll("#rootnode")
+      .attr("r", 30);
+
+  var membernode = svg.selectAll("#membernode")
+      .on("click", function(d){
+        $(".memberBox").fadeIn();
+        $(".memberBox .textInfo").html(d.nodename);
+        $(".memberBox .memberMean").html("<b>Average Score:</b> " + d.nodemean);
+        $(".memberBox .abilityInfo").html("<b>Ability:</b> " + d.ability);
+        $(".memberBox").css("background-color", this.style.fill);
+      });
+
+  var rootnode = svg.selectAll("#rootnode")
+      .style("fill", "#999")
+      .on("click", function(d){
+        $(".memberBox").fadeIn();
+        $(".memberBox .textInfo").html(d.nodename);
+        $(".memberBox .memberMean").html("<b>No of Students:</b> 74");
+        $(".memberBox .abilityInfo").html("<b>Teacher:</b> Mario Romero");
+        $(".memberBox").css("background-color", this.style.fill);
+
+      });
+
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    node.attr("cx", function(d) { return d.x; })
+        .attr("cy", function(d) { return d.y; });
+  });
+});
+
+</script>
