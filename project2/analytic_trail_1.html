@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Analytic trail 1</title>
+<link rel="icon" type="image/png" href="../img/icon.png"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<style>
+
+.images{
+	width: 600px;
+}
+
+.link{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+}
+
+body{
+	overflow-x: hidden;
+}
+h1 {
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+	color: #3f5577;
+}
+h4 {
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+	color: #6e7887;
+	margin-top: 30px;
+}
+p{
+	font-family: 'Open Sans', sans-serif;
+	margin: 100px;
+	color: #000;
+}
+a{
+	color: #474747;
+}
+svg{
+	position: absolute;
+	top: 150px;
+	width: 100%;
+}
+
+path{
+	fill: transparent;
+	stroke: #000;
+}
+text{
+	font-family: 'Open Sans', sans-serif;
+	fill: #999;
+	text-anchor: middle;
+}
+img{
+display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+</style>
+<body>
+<script src="d3.v3.min.js"></script>
+<h1>Analytic Trail 1</h1>
+<h4>By QuickBeam | Data from <a href="http://www.worldvaluessurvey.org/">WVS</a></h4>
+
+<p>As a navigated on the WVS site, I discovered that there were some questions concerning how people from different countries would justify certain dilemmas in life, such as Abortion and Prostitution. I soon discovered that people with the same nationality tended to be equally tolerant or intolerant, regardless of the topic. A nation that generally had a hard time justifying abortion tended to have a hard time justifying prostitution and homosexuality aswell, for example. I suspected that it might would correlate with the nation's importance of religion, and desided to investigate it!
+ <br>
+ <br>
+I selected 30 countries evenly from the continents, as following:<p/>
+
+<img src="1_Selection_of_countries.png" class="images"></img>
+
+<p>After that, I selected the 4 latest waves available (1995-2014) and my main statement "Religious person". I also selected questions about justifying things that I suspected would correlate with the religiosity of the country.</p>
+
+<img src="2_Selection_of_variables.png" class="images"></img>
+
+<p>When all data was selected, I downloaded it as Excel spreadsheets, one for each variable and wave. Every spreadsheet contained a mean value for every selected country for that specific wave and variable.</p>
+
+<img src="3_Downloading_WVS_Data.png" class="images"></img>
+
+<p>These mean values was collected in a new spreadsheet, and a new mean for every country and variable over a 20 year period was calculated. This spreadsheet was then converted to a CSV file, later used in my visualization.</p>
+
+<img src="4_Creating_a_spreadsheet.png" class="images"></img>
+
+<p>Even though the data, as provided from WVS, was quite messy, a slight correlation between religiousness and intolerance could be perceived. 
+
+<br>
+<br>
+
+To be continued! </p>
+
+<br/>
+<br/>
+
+<a class="link" href="index.html">Back to the visualization</a></p>
+
+</html>

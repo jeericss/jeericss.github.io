@@ -1,0 +1,139 @@
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  background: url("background.jpeg");
+  background-color: #fff;
+}
+
+a:link, a:visited {
+  color: #777;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #666;
+}
+
+h1 {
+  color: #3f5577;
+}
+
+h4 {
+  color: #6e7887;
+}
+
+blockquote {
+  margin: 0;
+}
+
+blockquote:before {
+  content: "“";
+  position: absolute;
+  left: -.4em;
+}
+
+blockquote:after {
+  content: "”";
+  position: absolute;
+}
+
+body > ul {
+  margin: 0;
+  padding: 0;
+}
+
+.invert {
+  background: #1f1f1f;
+  color: #dcdccc;
+}
+
+.invert h2, .invert h3 {
+  color: #7f9f7f;
+}
+
+.string, .regexp {
+  color: #f39;
+}
+
+.keyword {
+  color: #00c;
+}
+
+.comment {
+  color: #777;
+  font-style: oblique;
+}
+
+.number {
+  color: #369;
+}
+
+.class, .special {
+  color: #1181B8;
+}
+
+body > svg {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+#headerTitle {
+  text-align: center;
+}
+
+.helpIcon {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 45px;
+  border-radius: 20px;
+  border: 2px solid #fff;
+}
+
+.darkBackground {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: none;
+}
+
+.instructionBox {
+  position: absolute;
+  z-index: 11;
+  top: 200px;
+  left: 475px;
+  background-color: #fff;
+  width: 400px;
+  height: 300px;
+  display: none;
+}
+
+.instructionBox .closeIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 20px;
+  border: 1px solid #000;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 27px;
+  cursor: pointer;
+}
+
+.instructionBox .infoText {
+  margin-top: 10px;
+  text-align: center;
+}

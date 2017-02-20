@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Analytic trail 2</title>
+<link rel="icon" type="image/png" href="../img/icon.png"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+<style>
+
+.images{
+	width: 600px;
+}
+
+.link{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 16px;
+}
+
+.imageName{
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size: 12px;
+	text-align: center;
+}
+
+
+body{
+	overflow-x: hidden;
+}
+h1 {
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+	color: #3f5577;
+}
+h4 {
+	font-family: 'Roboto Condensed', sans-serif;
+	text-align: center;
+	color: #6e7887;
+	margin-top: 30px;
+}
+p{
+	font-family: 'Open Sans', sans-serif;
+	margin: 100px;
+	color: #000;
+
+}
+a{
+	color: #474747;
+}
+svg{
+	position: absolute;
+	top: 150px;
+	width: 100%;
+}
+
+path{
+	fill: transparent;
+	stroke: #000;
+}
+text{
+	font-family: 'Open Sans', sans-serif;
+	fill: #999;
+	text-anchor: middle;
+}
+img{
+display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+</style>
+<body>
+<script src="d3.v3.min.js"></script>
+<h1>Analytic Trail 2</h1>
+<h4>By QuickBeam | Data from <a href="http://www.worldvaluessurvey.org/">WVS</a></h4>
+
+<p>As the data was cleaned up, I started to look for suitable d3 libraries that would help me visualizing the data. I soon realized that 8 variables for 30 countries is a lot, and decided to use a structure that visualizes all the 8 variables and 30 countries in the same time, and in a clear way. <p/>
+
+<img src="scatterplot.png" class="images"></img>
+
+<p class="imageName" >Scatterplot<p/>
+
+<img src="radarcharts.png" class="images"></img>
+
+<p class="imageName" >Radarchart<p/>
+
+<img src="parallelcoordinates.png" class="images"></img>
+
+<p class="imageName" >Parallel Coordinates<p/>
+
+<p>I became appealed by the idea of letting the user brush the data and set his/her own search criteria, therefore the choice fell on Parallel Coordinates. I found some non-licensed d3 libraries that I combined in order to create my visualization, and the final result is shown below. </p>
+
+<img src="Proj2_screenshot.png" class="images"></img>
+
+<p>The first variable in the visualization is the statement about whether you consider yourself a religious person or not. The options was basically "Yes" or "No", and a country with a majority of its respondents saying "Yes" is represented with a 10. In the same way, a country with a majority of its respondents saying "No" is represented with a 1. 
+
+<br>
+<br>
+
+The following 7 variables concerns the "Justified"-statements, and shows how the respondents of the current countries have answered to what extend they would justify certain dilemmas in life: Suicide, Prostitution, Enthanasia, Someone cheating on taxes, Divorce, Abortion and Homosexuality, where 1 corresponds to "Never justifiable" and 10 corresponds to "Always justifiable". A zero means that the WVS lacks data for that country in that specific variable. The user can brush the different variables and the selected countries are highlighted in the list below.  </p>
+
+<br>
+<br>
+
+<a class="link" href="index.html">Back to the visualization</a></p>
+
+</html>
